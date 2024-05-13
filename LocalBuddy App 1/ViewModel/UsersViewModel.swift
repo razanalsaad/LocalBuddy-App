@@ -43,7 +43,7 @@ class UserViewModel: NSObject,ObservableObject, ASAuthorizationControllerDelegat
            guard isUserAuthenticated else { return }
            
       
-      print("test11")
+      
            let predicate = NSPredicate(value: true)
            let query = CKQuery(recordType: "LBUsers", predicate: predicate)
            
