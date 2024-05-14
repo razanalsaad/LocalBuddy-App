@@ -10,10 +10,12 @@ import SwiftUI
 @main
 struct LocalBuddy: App {
    @StateObject var vm = UserViewModel()
+    @StateObject var viewModel = ActivityViewModel()
     var body: some Scene {
         WindowGroup {
-           TabsView()
+            ActivityForm()
            .environmentObject(vm)
+           .environmentObject(viewModel)
         }
     }
 }

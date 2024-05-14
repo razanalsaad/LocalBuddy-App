@@ -5,6 +5,7 @@ import SwiftUI
 struct TabsView: View {
    
    @StateObject var userViewModel = UserViewModel()
+   @StateObject var viewModel = ActivityViewModel()
 
     var body: some View { TabView {
        NavigationView {
@@ -27,10 +28,12 @@ struct TabsView: View {
 
        NavigationView {
            CreateActivityView()
+               .environmentObject(viewModel)
                .navigationBarHidden(true)
        }
        .tabItem {
            Label("Activity", systemImage: "figure.outdoor.cycle")
+           
        }
 
        NavigationView {
