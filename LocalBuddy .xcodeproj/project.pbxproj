@@ -10,6 +10,8 @@
 		6915C3662BF2709600D41B74 /* ActivityForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6915C3652BF2709600D41B74 /* ActivityForm.swift */; };
 		6915C3682BF270BC00D41B74 /* ActivityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6915C3672BF270BC00D41B74 /* ActivityViewModel.swift */; };
 		6915C36C2BF3447A00D41B74 /* myActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6915C36B2BF3447A00D41B74 /* myActivity.swift */; };
+		9506F6062BF4B4DD000C1C44 /* ChatlistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9506F6052BF4B4DD000C1C44 /* ChatlistView.swift */; };
+		9506F6082BF4B56A000C1C44 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9506F6072BF4B56A000C1C44 /* NotificationView.swift */; };
 		A51C2A172BF0318B00ED7B7E /* ChatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51C2A162BF0318B00ED7B7E /* ChatsView.swift */; };
 		A51C2A192BF031AF00ED7B7E /* CreateActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51C2A182BF031AF00ED7B7E /* CreateActivityView.swift */; };
 		A51C2A1B2BF031D400ED7B7E /* ExploreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51C2A1A2BF031D400ED7B7E /* ExploreView.swift */; };
@@ -35,6 +37,8 @@
 		6915C3652BF2709600D41B74 /* ActivityForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityForm.swift; sourceTree = "<group>"; };
 		6915C3672BF270BC00D41B74 /* ActivityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewModel.swift; sourceTree = "<group>"; };
 		6915C36B2BF3447A00D41B74 /* myActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myActivity.swift; sourceTree = "<group>"; };
+		9506F6052BF4B4DD000C1C44 /* ChatlistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatlistView.swift; sourceTree = "<group>"; };
+		9506F6072BF4B56A000C1C44 /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
 		A51C2A162BF0318B00ED7B7E /* ChatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsView.swift; sourceTree = "<group>"; };
 		A51C2A182BF031AF00ED7B7E /* CreateActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateActivityView.swift; sourceTree = "<group>"; };
 		A51C2A1A2BF031D400ED7B7E /* ExploreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreView.swift; sourceTree = "<group>"; };
@@ -127,6 +131,8 @@
 				A51C2A1C2BF0322B00ED7B7E /* SignInView.swift */,
 				A53DE14F2BEA128100120AC2 /* UserProfileView.swift */,
 				A51C2A162BF0318B00ED7B7E /* ChatsView.swift */,
+				9506F6052BF4B4DD000C1C44 /* ChatlistView.swift */,
+				9506F6072BF4B56A000C1C44 /* NotificationView.swift */,
 				A51C2A222BF0DDEC00ED7B7E /* LocalProfileView.swift */,
 				A51C2A262BF0E8E500ED7B7E /* Post ReviewView.swift */,
 				A51C2A1E2BF0C06B00ED7B7E /* TabsView.swift */,
@@ -220,6 +226,7 @@
 				A51C2A192BF031AF00ED7B7E /* CreateActivityView.swift in Sources */,
 				A51C2A172BF0318B00ED7B7E /* ChatsView.swift in Sources */,
 				A51C2A232BF0DDEC00ED7B7E /* LocalProfileView.swift in Sources */,
+				9506F6082BF4B56A000C1C44 /* NotificationView.swift in Sources */,
 				A51C2A272BF0E8E500ED7B7E /* Post ReviewView.swift in Sources */,
 				A53DE1492BE0F86700120AC2 /* ActivityModel.swift in Sources */,
 				A53DE14E2BEA0EF400120AC2 /* UsersViewModel.swift in Sources */,
@@ -236,6 +243,7 @@
 				A53DE1362BE0F6F500120AC2 /* LocalBuddy_App_1App.swift in Sources */,
 				A51C2A1D2BF0322B00ED7B7E /* SignInView.swift in Sources */,
 				A53DE1502BEA128100120AC2 /* UserProfileView.swift in Sources */,
+				9506F6062BF4B4DD000C1C44 /* ChatlistView.swift in Sources */,
 				A51C2A252BF0E84900ED7B7E /* CategoryView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
