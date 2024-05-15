@@ -99,15 +99,15 @@ struct ChatView: View {
             HStack {
                 ZStack {
                     Circle()
-                        .fill(Color.yellow)
+                        .fill(Color.mustard)
                         .frame(width: 100, height: 50)
-                    Image("profile_image") // Replace "profile_image" with the name of your image asset
+                    Image("circleimage") // Replace "profile_image" with the name of your image asset
                         .resizable()
                         .padding()
-                        .frame(width: 40, height: 40)
+                        .frame(width: 100, height: 100)
                         .clipShape(Circle())
                 }
-                Text("Username")
+                Text("Emily")
                     .font(.title)
                     .bold()
             }

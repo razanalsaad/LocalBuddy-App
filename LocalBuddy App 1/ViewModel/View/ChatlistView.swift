@@ -22,8 +22,7 @@ struct ChatlistView: View {
                     VStack(alignment: .leading, spacing: 20) {
                         HStack(spacing: 20) {
                             // Yellow circle - Profile 1
-                            Circle()
-                                .fill(Color.mustard)
+                            Image("circleimage")
                                 .frame(width: 70, height: 100)
                                 .padding(.leading)
                             
@@ -57,8 +56,7 @@ struct ChatlistView: View {
                         Divider() // Gray line separating chat items
                         HStack(spacing: 20) {
                             // Yellow circle - Profile 2
-                            Circle()
-                                .fill(Color.mustard)
+                            Image("circleimage")
                                 .frame(width: 70, height: 100)
                                 .padding(.leading)
                             
