@@ -5,74 +5,89 @@
 //  Created by razan on 12/05/2024.
 //
 
+//
+//  CategoryView.swift
+//  LocalBuddy App 1
+//
+//  Created by razan on 12/05/2024.
+//
 import SwiftUI
 import CloudKit
 
 struct CategoryView: View {
-    @State private var selectedCategory: String? = nil
+    @State private var selectedCategories: [String] = []
     @State private var isSaved: Bool = false
-    
+    @State private var isActive: Bool = false // Track active state for custom NavigationLink
+
     var body: some View {
-        VStack {
-            Text("Choose your Intrest Category")
-                .font(.largeTitle)
-                .fontWeight(.heavy)
-                .multilineTextAlignment(.leading)
-                .padding(.trailing, 76.0)
-            
-            Text("To match your activities with Locals 🤩!")
-                .font(.title2)
-                .fontWeight(.medium)
-                .foregroundColor(Color.gray)
-                .padding(.vertical, 17.0)
-            
-            HStack {
-                CategoryButton(title: "ART", selectedCategory: $selectedCategory)
-                CategoryButton(title: "Sport", selectedCategory: $selectedCategory)
-            }
-            
-            HStack {
-                CategoryButton(title: "Food", selectedCategory: $selectedCategory)
-                CategoryButton(title: "Camping", selectedCategory: $selectedCategory)
-                CategoryButton(title: "Ceremony", selectedCategory: $selectedCategory)
-            }
-    
-           
-            Button(action: {
-                if let category = selectedCategory {
-                    saveCategoryToCloudKit(category: category)
-                    isSaved = true
+        NavigationView {
+            VStack {
+                Text("Choose your Favorite Category")
+                  .font(.system(size: 40))
+                    .fontWeight(.heavy)
+                    .foregroundColor(Color("mustard"))
+                    .multilineTextAlignment(.leading)
+                    .padding([.leading, .bottom, .trailing])
+                
+                
+                Text("To match your activities with \nLocals 🤩!")
+                  .font(.system(size: 25))
+                    .fontWeight(.semibold)
+                    .foregroundColor(Color.gray)
+                    .multilineTextAlignment(.leading)
+                    .padding([.top, .bottom, .trailing], 19.0)
+                
+                HStack {
+                    CategoryButton(title: "ART", selectedCategories: $selectedCategories)
+                    CategoryButton(title: "Sport", selectedCategories: $selectedCategories)
                 }
-            }) {
-                Text(" Get Started🔥")
-                  .frame(maxWidth: .infinity)
-                  .font(.title3)
-                  .fontWeight(.semibold)
-                    .foregroundColor(.white)
-                    .padding()
-                    .background(Color.black)
-                    .cornerRadius(12)
-                   
+                
+                HStack {
+                    CategoryButton(title: "Food", selectedCategories: $selectedCategories)
+                    CategoryButton(title: "Camping", selectedCategories: $selectedCategories)
+                    CategoryButton(title: "Ceremony", selectedCategories: $selectedCategories)
+                }
+                
+                Button(action: {
+                    if selectedCategories.count == 2 {
+                        saveCategoriesToCloudKit(categories: selectedCategories)
+                        isActive = true // Activate custom NavigationLink
+                    }
+                }) {
+                    Text("Get Started")
+                        .frame(width: 300, height: 30)
+                        .font(.system(size: 20))
+                        .fontWeight(.semibold)
+                        .foregroundColor(.white)
+                        .padding()
+                        .background(Color.black)
+                        .cornerRadius(12)
+                }
+                .padding([.top, .leading, .trailing], 37.0)
+                .background(
+                    NavigationLink(destination: TabsView()
+                        .navigationBarHidden(true)
+                        .navigationBarBackButtonHidden(true),
+                        isActive: $isActive) {
+                        EmptyView()
+                    }
+                )
             }
-            .padding([.top, .leading, .trailing], 30.0)
-            
-            if isSaved {
-                Text("")
-                  
-            }
+            .navigationBarHidden(true) // Hide navigation bar in CategoryView
         }
     }
-    
-    func saveCategoryToCloudKit(category: String) {
-        let record = CKRecord(recordType: "Category")
-        record["text"] = category as CKRecordValue
-        
+
+    func saveCategoriesToCloudKit(categories: [String]) {
         let database = CKContainer.default().publicCloudDatabase
-        database.save(record) { (record, error) in
-            if let error = error {
-                print("Error saving category to CloudKit: \(error.localizedDescription)")
-            } else {
-                print("Category saved to CloudKit")
+        for category in categories {
+            let record = CKRecord(recordType: "Category")
+            record["text"] = category as CKRecordValue
+            database.save(record) { (record, error) in
+                if let error = error {
+                    print("Error saving category to CloudKit: \(error.localizedDescription)")
+                } else {
+                    print("Category saved to CloudKit")
+                }
             }
         }
     }
@@ -80,21 +95,26 @@ struct CategoryView: View {
 
 struct CategoryButton: View {
     let title: String
-    @Binding var selectedCategory: String?
+    @Binding var selectedCategories: [String]
     
     var body: some View {
         Button(action: {
-            selectedCategory = title
+            if selectedCategories.contains(title) {
+                selectedCategories.removeAll { $0 == title }
+            } else if selectedCategories.count < 2 {
+                selectedCategories.append(title)
+            }
         }) {
             Text(title)
                 .font(.headline)
-                .fontWeight(.semibold)
+                .fontWeight(.medium)
                 .padding()
-                .foregroundColor(selectedCategory == title ? .white : .black)
-                .background(selectedCategory == title ? Color.gray : Color.yellow)
-                .cornerRadius(10)
+                .foregroundColor(selectedCategories.contains(title) ? .white : .black)
+                .background(selectedCategories.contains(title) ? Color.mustard : Color.gray4)
+                .cornerRadius(25)
         }
         .padding([.top, .leading, .trailing], 10)
+       
     }
 }
 

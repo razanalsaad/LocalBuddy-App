@@ -38,3 +38,31 @@ struct LBUsers: Identifiable {
 let record = CKRecord(recordType: "LBUsers")
 let user = LBUsers(record: record)
 
+
+
+struct User {
+    let name: String
+    let rating: Double
+    let description: String
+    let language: String
+    let reviews: [Review]
+}
+
+struct Review: Identifiable {
+    let id = UUID()
+    let username: String
+    let comment: String
+    let date: String
+}
+let sampleReviews: [Review] = [
+    Review(username: "Emily", comment: "Thank you Faisal for your great welcoming I Enjoyed a lot 🥰", date: "1 month ago"),
+    Review(username: "John", comment: "Great experience! Faisal was a fantastic host.", date: "2 months ago")
+]
+
+let sampleUser: User = User(
+    name: "Faisal Ahmed",
+    rating: 4.2,
+    description: "A sociable local with a love for cooking, food, and socializing. They bring people together through delightful culinary experiences, sharing their expertise and insider knowledge of local food culture.",
+    language: "English",
+    reviews: sampleReviews
+)

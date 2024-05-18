@@ -50,7 +50,7 @@ class UserViewModel: NSObject,ObservableObject, ASAuthorizationControllerDelegat
            let operation = CKQueryOperation(query: query)
            operation.recordFetchedBlock = { record in
                DispatchQueue.main.async {
-               //case and switch 
+                
                   let user = LocalBuddy_.LBUsers(record: record)
                    self.LBUsers.append(user)
                }

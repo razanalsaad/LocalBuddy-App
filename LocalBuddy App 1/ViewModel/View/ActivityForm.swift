@@ -1,6 +1,7 @@
 import SwiftUI
+import CloudKit
 
-struct ActivityForm: View {
+struct activityForm: View {
     @EnvironmentObject var viewModel: ActivityViewModel
     
     @State private var location = ""
@@ -10,9 +11,10 @@ struct ActivityForm: View {
     @State private var numberOfPeople = 1
     @State private var selectedActivityIndex = 0
     @State private var showingAlert = false
+    @State private var navigateToMyActivity = false
     
     var body: some View {
-        NavigationView {
+        VStack {
             Form {
                 Section(header: Text("Activity Information")) {
                     TextField("Location", text: $location)
@@ -25,10 +27,10 @@ struct ActivityForm: View {
                 }
                 
                 Section(header: Text("Date & Time")) {
-                                DatePicker("Date of the activity", selection: $date, in: Date()..., displayedComponents: .date)
-                                DatePicker("Start Time", selection: $startTime, in: startTimeRange, displayedComponents: .hourAndMinute)
-                                DatePicker("End Time", selection: $endTime, in: endTimeRange, displayedComponents: .hourAndMinute)
-                            }
+                    DatePicker("Date of the activity", selection: $date, in: Date()..., displayedComponents: .date)
+                    DatePicker("Start Time", selection: $startTime, in: startTimeRange, displayedComponents: .hourAndMinute)
+                    DatePicker("End Time", selection: $endTime, in: endTimeRange, displayedComponents: .hourAndMinute)
+                }
                 
                 Section(header: Text("Number of people")) {
                     HStack {
@@ -48,17 +50,20 @@ struct ActivityForm: View {
                     .buttonStyle(BorderlessButtonStyle())
                 }
                 
-                Button(action: {
-                    saveActivity()
-                }) {
-                    Text("Apply Activity")
-                        .frame(maxWidth: .infinity, alignment: .center)
-                        .padding()
-                        .background(Color.black)
-                        .foregroundColor(.white)
-                        .font(.headline)
-                        .cornerRadius(10)
-                        
+                Section {
+                    Button(action: {
+                        showingAlert = true
+                    }) {
+                       Text("Apply Activity")
+                          .fontWeight(.semibold)
+                            .frame(maxWidth: .infinity, alignment: .center)
+                            .padding()
+                            .background(Color.black)
+                            .foregroundColor(.white)
+                            .font(.system(size: 20))
+                            .cornerRadius(10)
+                    }
+                    .listRowBackground(Color.clear)
                 }
             }
             .onAppear {
@@ -68,30 +73,19 @@ struct ActivityForm: View {
                 Alert(
                     title: Text("New Activity Created"),
                     message: Text("You've successfully created a new activity"),
-                    dismissButton: .default(Text("Ok"))
+                    dismissButton: .default(Text("Ok")) {
+                        navigateToMyActivity = true
+                    }
                 )
             }
-        }
-    }
-    
-    func saveActivity() {
-        guard selectedActivityIndex >= 0 && selectedActivityIndex < viewModel.activities.count else {
-            // Handle the case when the selected index is out of bounds
-            print("Error: Selected activity index is out of range")
-            return
-        }
-        
-        let selectedActivity = viewModel.activities[selectedActivityIndex]
-        viewModel.saveActivity(activity: selectedActivity) { result in
-            switch result {
-            case .success:
-                showingAlert = true
-            case .failure(let error):
-                // Handle the error, maybe show an alert to the user
-                print("Error saving activity:", error)
+            
+            NavigationLink(destination: my_Activity(), isActive: $navigateToMyActivity) {
+                EmptyView()
             }
+            .hidden()
         }
     }
+
     private var startTimeRange: ClosedRange<Date> {
         let minTime = Calendar.current.date(bySettingHour: 0, minute: 0, second: 0, of: date)!
         let maxTime = Calendar.current.date(bySettingHour: 23, minute: 59, second: 59, of: date)!
@@ -103,36 +97,34 @@ struct ActivityForm: View {
         let maxTime = Calendar.current.date(bySettingHour: 23, minute: 59, second: 59, of: date)!
         return startTime...maxTime
     }
-    
 }
 
-    struct CustomTextField: View {
-        var placeholder: String
-        @Binding var text: String
-        @Binding var isPlaceholderVisible: Bool
+struct CustomTextField: View {
+    var placeholder: String
+    @Binding var text: String
+    @Binding var isPlaceholderVisible: Bool
 
-        var body: some View {
-            ZStack(alignment: .leading) {
-                if isPlaceholderVisible {
-                    Text(placeholder)
-                        .foregroundColor(.gray)
-                        .opacity(0.8)
-                        .padding(.leading, 5)
-                }
-
-                TextField("", text: $text, onEditingChanged: { isEditing in
-                    self.isPlaceholderVisible = !isEditing && text.isEmpty
-                })
-                .foregroundColor(.black)
-                .padding(.leading, 5)
+    var body: some View {
+        ZStack(alignment: .leading) {
+            if isPlaceholderVisible {
+                Text(placeholder)
+                    .foregroundColor(.gray)
+                    .opacity(0.8)
+                    .padding(.leading, 5)
             }
+
+            TextField("", text: $text, onEditingChanged: { isEditing in
+                self.isPlaceholderVisible = !isEditing && text.isEmpty
+            })
+            .foregroundColor(.black)
+            .padding(.leading, 5)
         }
     }
-
+}
 
 struct activityform_Previews: PreviewProvider {
     static var previews: some View {
-        ActivityForm()
+        activityForm()
             .environmentObject(ActivityViewModel())
     }
 }

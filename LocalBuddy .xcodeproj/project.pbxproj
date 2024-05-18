@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6915C3662BF2709600D41B74 /* ActivityForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6915C3652BF2709600D41B74 /* ActivityForm.swift */; };
+		6915C3662BF2709600D41B74 /* activityForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6915C3652BF2709600D41B74 /* activityForm.swift */; };
 		6915C3682BF270BC00D41B74 /* ActivityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6915C3672BF270BC00D41B74 /* ActivityViewModel.swift */; };
 		6915C36C2BF3447A00D41B74 /* myActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6915C36B2BF3447A00D41B74 /* myActivity.swift */; };
 		9506F6062BF4B4DD000C1C44 /* ChatlistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9506F6052BF4B4DD000C1C44 /* ChatlistView.swift */; };
@@ -24,17 +24,18 @@
 		A51C2A292BF0F95700ED7B7E /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51C2A282BF0F95700ED7B7E /* CategoryViewModel.swift */; };
 		A53DE1362BE0F6F500120AC2 /* LocalBuddy_App_1App.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53DE1352BE0F6F500120AC2 /* LocalBuddy_App_1App.swift */; };
 		A53DE1382BE0F6F500120AC2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53DE1372BE0F6F500120AC2 /* ContentView.swift */; };
-		A53DE13A2BE0F6F600120AC2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A53DE1392BE0F6F600120AC2 /* Assets.xcassets */; };
 		A53DE13D2BE0F6F600120AC2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A53DE13C2BE0F6F600120AC2 /* Preview Assets.xcassets */; };
 		A53DE1442BE0F77F00120AC2 /* SplashscreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53DE1432BE0F77F00120AC2 /* SplashscreenView.swift */; };
 		A53DE1472BE0F7FB00120AC2 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53DE1462BE0F7FB00120AC2 /* UserModel.swift */; };
 		A53DE1492BE0F86700120AC2 /* ActivityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53DE1482BE0F86700120AC2 /* ActivityModel.swift */; };
 		A53DE14E2BEA0EF400120AC2 /* UsersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53DE14D2BEA0EF400120AC2 /* UsersViewModel.swift */; };
 		A53DE1502BEA128100120AC2 /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53DE14F2BEA128100120AC2 /* UserProfileView.swift */; };
+		A5AC08A32BF8E3930025FCC4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5AC08A22BF8E3930025FCC4 /* Assets.xcassets */; };
+		A5AC08A52BF8E4610025FCC4 /* JoinActivityView .swift in Sources */ = {isa = PBXBuildFile; fileRef = A5AC08A42BF8E4610025FCC4 /* JoinActivityView .swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		6915C3652BF2709600D41B74 /* ActivityForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityForm.swift; sourceTree = "<group>"; };
+		6915C3652BF2709600D41B74 /* activityForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = activityForm.swift; sourceTree = "<group>"; };
 		6915C3672BF270BC00D41B74 /* ActivityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewModel.swift; sourceTree = "<group>"; };
 		6915C36B2BF3447A00D41B74 /* myActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myActivity.swift; sourceTree = "<group>"; };
 		9506F6052BF4B4DD000C1C44 /* ChatlistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatlistView.swift; sourceTree = "<group>"; };
@@ -52,7 +53,6 @@
 		A53DE1322BE0F6F500120AC2 /* LocalBuddy .app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LocalBuddy .app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A53DE1352BE0F6F500120AC2 /* LocalBuddy_App_1App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalBuddy_App_1App.swift; sourceTree = "<group>"; };
 		A53DE1372BE0F6F500120AC2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		A53DE1392BE0F6F600120AC2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A53DE13C2BE0F6F600120AC2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A53DE1432BE0F77F00120AC2 /* SplashscreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashscreenView.swift; sourceTree = "<group>"; };
 		A53DE1462BE0F7FB00120AC2 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
@@ -60,6 +60,8 @@
 		A53DE14A2BE220E200120AC2 /* LocalBuddy App 1.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "LocalBuddy App 1.entitlements"; sourceTree = "<group>"; };
 		A53DE14D2BEA0EF400120AC2 /* UsersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewModel.swift; sourceTree = "<group>"; };
 		A53DE14F2BEA128100120AC2 /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
+		A5AC08A22BF8E3930025FCC4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "../../LocalBuddy-App-/LocalBuddy App 1/Assets.xcassets"; sourceTree = "<group>"; };
+		A5AC08A42BF8E4610025FCC4 /* JoinActivityView .swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "JoinActivityView .swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +100,7 @@
 				A53DE1352BE0F6F500120AC2 /* LocalBuddy_App_1App.swift */,
 				A53DE1372BE0F6F500120AC2 /* ContentView.swift */,
 				A53DE1432BE0F77F00120AC2 /* SplashscreenView.swift */,
-				A53DE1392BE0F6F600120AC2 /* Assets.xcassets */,
+				A5AC08A22BF8E3930025FCC4 /* Assets.xcassets */,
 				A53DE13B2BE0F6F600120AC2 /* Preview Content */,
 			);
 			path = "LocalBuddy App 1";
@@ -126,18 +128,19 @@
 			isa = PBXGroup;
 			children = (
 				A51C2A242BF0E84900ED7B7E /* CategoryView.swift */,
+				A51C2A1E2BF0C06B00ED7B7E /* TabsView.swift */,
 				A51C2A1A2BF031D400ED7B7E /* ExploreView.swift */,
 				A51C2A182BF031AF00ED7B7E /* CreateActivityView.swift */,
-				A51C2A1C2BF0322B00ED7B7E /* SignInView.swift */,
-				A53DE14F2BEA128100120AC2 /* UserProfileView.swift */,
+				A5AC08A42BF8E4610025FCC4 /* JoinActivityView .swift */,
+				6915C3652BF2709600D41B74 /* activityForm.swift */,
+				6915C36B2BF3447A00D41B74 /* myActivity.swift */,
 				A51C2A162BF0318B00ED7B7E /* ChatsView.swift */,
 				9506F6052BF4B4DD000C1C44 /* ChatlistView.swift */,
 				9506F6072BF4B56A000C1C44 /* NotificationView.swift */,
+				A51C2A1C2BF0322B00ED7B7E /* SignInView.swift */,
+				A53DE14F2BEA128100120AC2 /* UserProfileView.swift */,
 				A51C2A222BF0DDEC00ED7B7E /* LocalProfileView.swift */,
 				A51C2A262BF0E8E500ED7B7E /* Post ReviewView.swift */,
-				A51C2A1E2BF0C06B00ED7B7E /* TabsView.swift */,
-				6915C3652BF2709600D41B74 /* ActivityForm.swift */,
-				6915C36B2BF3447A00D41B74 /* myActivity.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -212,7 +215,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A53DE13D2BE0F6F600120AC2 /* Preview Assets.xcassets in Resources */,
-				A53DE13A2BE0F6F600120AC2 /* Assets.xcassets in Resources */,
+				A5AC08A32BF8E3930025FCC4 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -226,6 +229,7 @@
 				A51C2A192BF031AF00ED7B7E /* CreateActivityView.swift in Sources */,
 				A51C2A172BF0318B00ED7B7E /* ChatsView.swift in Sources */,
 				A51C2A232BF0DDEC00ED7B7E /* LocalProfileView.swift in Sources */,
+				A5AC08A52BF8E4610025FCC4 /* JoinActivityView .swift in Sources */,
 				9506F6082BF4B56A000C1C44 /* NotificationView.swift in Sources */,
 				A51C2A272BF0E8E500ED7B7E /* Post ReviewView.swift in Sources */,
 				A53DE1492BE0F86700120AC2 /* ActivityModel.swift in Sources */,
@@ -238,7 +242,7 @@
 				6915C3682BF270BC00D41B74 /* ActivityViewModel.swift in Sources */,
 				A53DE1382BE0F6F500120AC2 /* ContentView.swift in Sources */,
 				A53DE1472BE0F7FB00120AC2 /* UserModel.swift in Sources */,
-				6915C3662BF2709600D41B74 /* ActivityForm.swift in Sources */,
+				6915C3662BF2709600D41B74 /* activityForm.swift in Sources */,
 				A51C2A212BF0CFEC00ED7B7E /* CategoryModel.swift in Sources */,
 				A53DE1362BE0F6F500120AC2 /* LocalBuddy_App_1App.swift in Sources */,
 				A51C2A1D2BF0322B00ED7B7E /* SignInView.swift in Sources */,

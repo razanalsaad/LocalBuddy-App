@@ -12,7 +12,7 @@ struct UserProfileView: View {
     @State private var selectedImage: UIImage?
     @State private var isImagePickerPresented = false
     @State private var activities: [String] = ["Food", "Sport", "Camping", "Ceremonie"]
-    @State private var selectedActivities: [String] = []
+   @State private var selectedActivities: [String] = ["Camping", "Food"]
     
     var userInitial: String {
         let firstNameInitial = viewModel.firstName.isEmpty ? "" : String(viewModel.firstName.first!)
@@ -21,79 +21,87 @@ struct UserProfileView: View {
     }
 
     var body: some View {
-        NavigationView {
-            Form {
-                Section(header: headerView) {
-                    EmptyView()
-                }
-                
-                Section(header: Text("Your Activities")) {
-                    HStack {
-                        ForEach(activities, id: \.self) { activity in
-                            ActivityButton(activity: activity, selectedActivities: $selectedActivities)
-                        }
+        Form {
+            Section(header: headerView) {
+                EmptyView()
+            }
+            
+            Section(header: Text("Your Favorite Catgoery")) {
+                HStack {
+                    ForEach(activities, id: \.self) { activity in
+                        ActivityButton(activity: activity, selectedActivities: $selectedActivities)
                     }
                 }
-                
-                Section(header: Text("First Name")) {
-                    TextField("First Name", text: $viewModel.firstName)
-                }
-                
-                Section(header: Text("Last Name")) {
-                    TextField("Last Name", text: $viewModel.lastName)
-                }
-                
-                Section(header: Text("Birth Date")) {
-                    DatePicker("Birth Date", selection: $viewModel.birthdate, displayedComponents: .date)
-                }
-                
-                Section(header: Text("Email")) {
-                    TextField("Email", text: $viewModel.email)
-                }
-                
-                Section(header: Text("Password")) {
-                    TextField("Password", text: $viewModel.password)
-                }
-                
-                Section(header: Text("Gender")) {
-                    Picker(selection: $viewModel.gender, label: Text("Gender")) {
-                        ForEach([UserViewModel.Gender.male, UserViewModel.Gender.female], id: \.self) { gender in
-                            Text(gender == .male ? "Male" : "Female").tag(gender)
-                        }
+            }
+            
+            Section(header: Text("First Name")) {
+                TextField("First Name", text: $viewModel.firstName)
+            }
+            
+            Section(header: Text("Last Name")) {
+                TextField("Last Name", text: $viewModel.lastName)
+            }
+            
+            Section(header: Text("Birth Date")) {
+                DatePicker("Birth Date", selection: $viewModel.birthdate, displayedComponents: .date)
+            }
+            
+            Section(header: Text("Email")) {
+                TextField("Email", text: $viewModel.email)
+            }
+            
+            Section(header: Text("Password")) {
+                TextField("Password", text: $viewModel.password)
+            }
+            
+            Section(header: Text("Gender")) {
+                Picker(selection: $viewModel.gender, label: Text("Gender")) {
+                    ForEach([UserViewModel.Gender.male, UserViewModel.Gender.female], id: \.self) { gender in
+                        Text(gender == .male ? "Male" : "Female").tag(gender)
                     }
-                    .pickerStyle(DefaultPickerStyle())
                 }
-                
-                Section(header: Text("Language Spoken")) {
-                    List {
-                        ForEach(["Arabic", "English", "French", "Italian", "Spanish"], id: \.self) { language in
-                            MultipleSelectionRow(title: language, isSelected: viewModel.languageSpoken.contains(language)) {
-                                if viewModel.languageSpoken.contains(language) {
-                                    viewModel.languageSpoken.removeAll { $0 == language }
-                                } else {
-                                    viewModel.languageSpoken.append(language)
-                                }
+                .pickerStyle(DefaultPickerStyle())
+            }
+            
+            Section(header: Text("Language Spoken")) {
+                List {
+                    ForEach(["Arabic", "English", "French", "Italian", "Spanish"], id: \.self) { language in
+                        MultipleSelectionRow(title: language, isSelected: viewModel.languageSpoken.contains(language)) {
+                            if viewModel.languageSpoken.contains(language) {
+                                viewModel.languageSpoken.removeAll { $0 == language }
+                            } else {
+                                viewModel.languageSpoken.append(language)
                             }
                         }
                     }
                 }
-                
-                Section(header: Text("About Me")) {
-                    TextField("About Me", text: $viewModel.aboutMe)
-                }
-                
             }
-            .accentColor(.black)
-            .navigationBarTitle("Profile")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: {
-                        // Sign out action
-                    }) {
-                        Image(systemName: "rectangle.portrait.and.arrow.forward")
-                            .foregroundColor(.red)
-                    }
+            
+            Section(header: Text("About Me")) {
+                TextField("About Me", text: $viewModel.aboutMe)
+               
+               
+            }
+           Button(action: {
+               // Action for the Post Review button
+           }) {
+              Text("Save")
+                 .fontWeight(.semibold)
+                   .foregroundColor(.white)
+                   .font(.system(size: 20))
+                   .frame(width: 300, height: 50)
+                   .background(Color.black)
+                   .cornerRadius(10)
+           }  .listRowBackground(Color.clear)
+        }
+        .accentColor(.black)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button(action: {
+                    // Sign out action
+                }) {
+                    Image(systemName: "rectangle.portrait.and.arrow.forward")
+                        .foregroundColor(.red)
                 }
             }
         }
@@ -134,28 +142,37 @@ struct UserProfileView: View {
     }
 }
 
+import SwiftUI
+
+import SwiftUI
+
 struct ActivityButton: View {
     let activity: String
     @Binding var selectedActivities: [String]
 
     var body: some View {
         Button(action: {
-            if selectedActivities.contains(activity) {
+            if selectedActivities.contains(activity) && activity != "Camping" && activity != "Food" {
                 selectedActivities.removeAll { $0 == activity }
             } else {
-                selectedActivities.append(activity)
+                selectedActivities.removeAll { $0 != "Camping" && $0 != "Food" } // Keep "Camping" and "Food" selected
+                if !selectedActivities.contains(activity) {
+                    selectedActivities.append(activity)
+                }
             }
         }) {
             Text(activity)
                 .font(.callout)
                 .fontWeight(.semibold)
                 .padding(7.0)
-                .background(selectedActivities.contains(activity) ? Color.black : Color.yellow)
+                .background(selectedActivities.contains(activity) ? Color.mustard : Color.gray4)
                 .foregroundColor(selectedActivities.contains(activity) ? .white : .black)
                 .cornerRadius(6)
         }
     }
 }
+
+
 
 struct MultipleSelectionRow: View {
     var title: String

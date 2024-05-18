@@ -1,15 +1,15 @@
 //
-//  ChatlistView.swift
-//  LocalBuddy 
+//   ChatlistView.swift
+//  LocalBuddy
 //
-//  Created by Renad fahad Alfurayhi on 07/11/1445 AH.
+//  Created by razan on 16/05/2024.
 //
 
 import SwiftUI
 
 struct ChatlistView: View {
     var body: some View {
-        NavigationView {
+       
         let text1Color = Color.mustard
         let text2Color = Color.gray
             VStack {
@@ -23,25 +23,27 @@ struct ChatlistView: View {
                         HStack(spacing: 20) {
                             // Yellow circle - Profile 1
                             Image("circleimage")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
                                 .frame(width: 70, height: 100)
                                 .padding(.leading)
                             
                             // Message - Profile 1
                             VStack(alignment: .leading) {
-                                Text("John Doe")
+                                Text("Emily Smith")
                                     .font(.headline)
                                     .foregroundColor(.black)
                                     
                                 Text("You :")
-                                               .foregroundColor(text1Color)
-                                               .font(.body)
+                                           .foregroundColor(text1Color)
+                                           .font(.body)
                                            
                                            Text("OK")
-                                               .foregroundColor(text2Color)
-                                               .font(.body)
+                                           .foregroundColor(text2Color)
+                                           .font(.body)
 
-                                               .font(.body)
-                                               
+                                           .font(.body)
+                                           
                             }
                             
                             Spacer()
@@ -55,19 +57,22 @@ struct ChatlistView: View {
                         
                         Divider() // Gray line separating chat items
                         HStack(spacing: 20) {
-                            // Yellow circle - Profile 2
+                            
                             Image("circleimage")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
                                 .frame(width: 70, height: 100)
                                 .padding(.leading)
                             
-                            // Message - Profile 2
+                            
                             VStack(alignment: .leading) {
                                 Text("Jane Smith")
                                     .font(.headline)
                                     .foregroundColor(.black)
+                                
                                 Text("You :")
-                                               .foregroundColor(text1Color)
-                                               .font(.body)
+                                           .foregroundColor(text1Color)
+                                           .font(.body)
                                   
                                 Text("How are you?")
                                     .font(.subheadline)
@@ -88,10 +93,10 @@ struct ChatlistView: View {
                 }
                 Spacer()
             }
-            .navigationBarTitleDisplayMode(.inline)
+          
         }
     }
-}
+
 
 #Preview {
     ChatlistView()

@@ -1,10 +1,3 @@
-//
-//  ChatsView.swift
-//  LocalBuddy App 1
-//
-//  Created by razan on 12/05/2024.
-//
-
 import SwiftUI
 import CloudKit
 
@@ -89,29 +82,35 @@ struct ChatBubble: View {
 struct ChatView: View {
     @State private var newMessage: String = ""
     @State private var messages: [Message] = [
-        Message(sender: "John", recipient: "Me", timestamp: Date(), content: "Hey, how's it going?"),
-        Message(sender: "Me", recipient: "John", timestamp: Date(), content: "Good, thanks! How about you?"),
+        Message(sender: "John", recipient: "Me", timestamp: Date(), content: "Hey, how's it going, can I join your activty ?"),
+     
         
     ]
 
     var body: some View {
         VStack {
-            HStack {
-                ZStack {
-                    Circle()
-                        .fill(Color.mustard)
-                        .frame(width: 100, height: 50)
-                    Image("circleimage") // Replace "profile_image" with the name of your image asset
-                        .resizable()
-                        .padding()
-                        .frame(width: 100, height: 100)
-                        .clipShape(Circle())
-                }
-                Text("Emily")
+           HStack {
+              ZStack {
+                 Circle()
+                    .fill(Color.mustard)
+                    .frame(width: 100, height: 50)
+                 Image("circleimage")
+                    .resizable()
+                    .padding()
+                    .frame(width: 100, height: 100)
+                    .clipShape(Circle())
+              }
+              VStack{Text("Emily Smith")
                     .font(.title)
                     .bold()
-            }
-            .padding()
+                 
+                 Text("Online")
+                    .font(.subheadline)
+                    .foregroundColor(.gray)
+                 
+              }
+           } .offset(x: /*@START_MENU_TOKEN@*/-48.0/*@END_MENU_TOKEN@*/, y: /*@START_MENU_TOKEN@*/10.0/*@END_MENU_TOKEN@*/)
+           
 
             ScrollView {
                 VStack(alignment: .leading, spacing: 10) {
@@ -121,6 +120,7 @@ struct ChatView: View {
                 }
                 .padding()
             }
+           
 
             HStack {
                 TextField("Type a message", text: $newMessage)
@@ -194,9 +194,6 @@ struct ChatsView: View {
 
 struct ChatsView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+       ChatView()
     }
-}
-#Preview {
-    ChatsView()
 }

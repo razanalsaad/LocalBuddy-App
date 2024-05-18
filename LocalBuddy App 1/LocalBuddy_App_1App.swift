@@ -5,17 +5,21 @@
 //  Created by razan on 30/04/2024.
 //
 
+
+
 import SwiftUI
 
 @main
 struct LocalBuddy: App {
    @StateObject var vm = UserViewModel()
-    @StateObject var viewModel = ActivityViewModel()
+   @StateObject var viewModel = ActivityViewModel()
+
     var body: some Scene {
         WindowGroup {
-            ActivityForm()
+      ContentView()
            .environmentObject(vm)
            .environmentObject(viewModel)
+         
         }
     }
 }
